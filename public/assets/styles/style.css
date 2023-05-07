@@ -1,0 +1,71 @@
+:root {
+    --background-color: #FFF4E0;
+    --color-NUCE: #FFBF9B;
+    --tomato: #AA0000;
+    --color-content: #4D4D4D;
+}
+
+body {
+    background: var(--background-color);
+    margin: 0%;
+}
+
+header {
+    top: 34px;
+    position: absolute;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+nav {
+    display: flex;
+    width: 90%;
+    justify-items: center;
+}
+
+.menu-nav {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.menu-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-nav li {
+    float: left;
+    padding: 0%;
+}
+.menu-nav button {
+    background: none;
+    border: 0px;
+}
+nav img {
+    width: 70%;
+    height: auto;
+}
+
+.pomodoro-container {
+    top: 30%;
+    position: absolute;
+    display: grid;
+    justify-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.pomodoro-container img {
+    width: 40%;
+    height: auto;
+    
+    
+}
+.timer p {
+    font-size: 90px;
+    margin-top: 20%;
+    color: var(--color-content);
+}
