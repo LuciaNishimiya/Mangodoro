@@ -57,8 +57,6 @@ function svgL() {
                 .then(res => res.text())
                 .then(text => {
                     svgSel.innerHTML = text;
-                    console.log(text);
-
                 });
 
         } else {
