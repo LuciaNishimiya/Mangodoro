@@ -7,33 +7,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mangodoro</title>
     <link rel="icon" href="./assets/img/mango-logo.webp">
+    <link id="theme-link" rel="stylesheet" href="./assets/styles/light.css">
     <link rel="stylesheet" href="./assets/styles/style.css">
 </head>
 
 <body>
     <header>
         <nav>
+
             <div class="logo">
-                <img src="./assets/img/tomato.svg" alt="">
+                <span id="tomato" class="SvgC"></span>
             </div>
             <div class="menu-nav">
                 <ul>
-                    <li><button id="statistics-button"><img src="./assets/img/statistics.svg" alt=""></button></li>
-                    <li><button id="darkmode-button"><img src="./assets/img/darkmode.svg" alt=""></button></li>
-                    <li><button id="config-button"><img src="./assets/img/config.svg" alt=""></button></li>
-                    <li><button id="share-button"><img src="./assets/img/share.svg" alt=""></button></li>
+                    <li><button id="statistics-button"><span id="statistics" class="SvgC"></span></button>
+                    </li>
+                    <li><button id="darkmode-button"><span id="darkmode" class="SvgC"></span></button></li>
+                    <li><button id="config-button"><span id="config" class="SvgC"></span></button></li>
+                    <li><button id="share-button"><span id="share" class="SvgC"></span></button></li>
+                </ul>
+            </div>
+            <div class="mobile-menu-nav">
+                <ul>
+                    <li><button id="mobile-nav-button"><span id="down" class="SvgC"></button></li>
                 </ul>
             </div>
         </nav>
-    </header>
-    <section class="pomodoro-container">
-        <img src="./assets/img/clock.svg" alt="">
-        <div class="timer">
-            <p><span>20:20</span></p>
+        <div id="menuOverlay">
+            <button id="close-menu-button"> <span id="x-close" class="SvgC"></button>
+            <div id="menu-container"></div>
+
         </div>
-        <div></div>
+    </header>
+    <section class="pomodoro-container"><span id="clock" class="SvgC"></span>
+
+        <div class="timer">
+            <p id="timer-clock"><span>20:25</span></p>
+            <p id="mobile-mobile-timer-s" class="mobile-timer"><span>20</span></p>
+            <p id="mobile-mobile-timer-m" class="mobile-timer"><span>25</span></p>
+        </div>
+        <div class="controls-container">
+            <ul>
+                <li><button id="start-button"><span id="start" class="SvgC"></span></button></li>
+
+                <li><button id="stop-button"><span id="stop" class="SvgC"></span></button></li>
+                <li><button id="next-button"><span id="next" class="SvgC"></span></button></li>
+            </ul>
+        </div>
+        <div class="rounds-container">
+            <p><span>0/5</span></p>
+        </div>
     </section>
     <footer></footer>
+    <script src="./assets/scripts/script.js"></script>
 </body>
 
 </html>

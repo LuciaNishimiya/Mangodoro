@@ -1,15 +1,14 @@
-:root {
-    --background-color: #FFF4E0;
-    --color-NUCE: #FFBF9B;
-    --tomato: #AA0000;
-    --color-content: #4D4D4D;
-}
-
 body {
     background: var(--background-color);
-    margin: 0%;
+    margin: 0;
+    font-family: 'Quicksand';
+}
+svg {
+    fill: var(--color-content) !important;
+    stroke: var(--color-content) !important;
 }
 
+/*Navbar*/
 header {
     top: 34px;
     position: absolute;
@@ -30,27 +29,114 @@ nav {
     width: 100%;
 }
 
-.menu-nav ul {
+nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
 
-.menu-nav li {
+nav li {
     float: left;
     padding: 0%;
 }
+
 .menu-nav button {
     background: none;
     border: 0px;
 }
+
+nav svg {
+    width: 66%;
+    height: auto;
+    fill: none !important;
+}
+
 nav img {
-    width: 70%;
+    width: 66%;
     height: auto;
 }
 
+.moon-none {
+    display: var(--dark-mode);
+}
+
+.sun-none {
+    display: var(--light-mode);
+}
+
+.mobile-menu-nav {
+    display: none;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.mobile-menu-nav button {
+    background: none;
+    border: 0px;
+}
+
+
+
+/*Menu*/
+#menuOverlay {
+    z-index: 999;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 500px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-menu);
+    padding: 20px;
+    border-radius: 6px;
+    color: var(--color-content);
+}
+
+#close-menu-button {
+    margin: 0;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+#close-menu-button svg {
+    width: 30%;
+    height: auto;
+    margin: 0;
+}
+
+.input {
+    background-color: var(--background-color);
+    border: none;
+    border-radius: 8px;
+    height: 16px;
+    font-size: var(--sm);
+    padding: 6px;
+    margin-bottom: 12px;
+    color: var(--color-content);
+}
+
+.save-button {
+    background: none;
+    border: none;
+    color: var(--color-content);
+    width: 100%;
+    cursor: pointer;
+    font-size: var(--md);
+    font-weight: bold;
+    height: 50px;
+}
+
+
+/*section pomodoro*/
 .pomodoro-container {
-    top: 30%;
+    top: 23%;
     position: absolute;
     display: grid;
     justify-items: center;
@@ -58,14 +144,79 @@ nav img {
     width: 100%;
 }
 
-.pomodoro-container img {
-    width: 40%;
+.pomodoro-container svg {
+    width: 30%;
     height: auto;
-    
-    
 }
+
 .timer p {
-    font-size: 90px;
-    margin-top: 20%;
+    margin: 0;
+    font-size: 99px;
+    margin-top: 0%;
     color: var(--color-content);
+}
+
+.mobile-timer {
+    display: none;
+}
+
+.controls-container {
+    margin-top: 30px;
+    margin-left: 20px;
+    margin-right: 30px;
+    position: relative;
+}
+
+.controls-container ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.controls-container button {
+    background: none;
+    border: 0px;
+}
+
+.controls-container svg {
+    width: 40%;
+    fill: none !important;
+    height: auto;
+}
+
+.rounds-container p {
+    margin: 0;
+    font-size: 80px;
+    margin-top: 4%;
+    color: var(--color-content);
+}
+
+@media (max-width: 640px) {
+    .menu-nav {
+        display: none;
+    }
+
+    .mobile-menu-nav {
+        display: flex;
+    }
+
+    .timer p:first-child {
+        display: none;
+    }
+
+    .mobile-timer {
+        display: grid;
+    }
+
+    #menuOverlay {
+        height: 90%;
+
+
+    }
+}
+.SvgC{
+display: flex;
+justify-items: center;
+justify-content: center;
 }
