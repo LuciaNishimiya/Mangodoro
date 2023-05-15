@@ -1,11 +1,23 @@
 body {
     background: var(--background-color);
     margin: 0;
+    width: 100%;
     font-family: 'Quicksand';
 }
+
+p {
+    font-size: var(--lg);
+}
+
 svg {
     fill: var(--color-content) !important;
     stroke: var(--color-content) !important;
+}
+
+.SvgC {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
 }
 
 /*Navbar*/
@@ -75,10 +87,8 @@ nav img {
     border: 0px;
 }
 
-
-
 /*Menu*/
-#menuOverlay {
+#menu-Overlay {
     z-index: 999;
     position: fixed;
     top: 50%;
@@ -87,7 +97,6 @@ nav img {
     width: 90%;
     max-width: 500px;
     display: none;
-    align-items: center;
     justify-content: center;
     background-color: var(--color-menu);
     padding: 20px;
@@ -111,17 +120,6 @@ nav img {
     margin: 0;
 }
 
-.input {
-    background-color: var(--background-color);
-    border: none;
-    border-radius: 8px;
-    height: 16px;
-    font-size: var(--sm);
-    padding: 6px;
-    margin-bottom: 12px;
-    color: var(--color-content);
-}
-
 .save-button {
     background: none;
     border: none;
@@ -131,6 +129,47 @@ nav img {
     font-size: var(--md);
     font-weight: bold;
     height: 50px;
+}
+
+input {
+    text-align: center;
+}
+label{
+    margin-bottom: 9px;
+}
+.time-config {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+
+
+}
+
+.border-config {
+    border-top: 1px solid var(--background-color);
+    padding: 30px;
+}
+
+.item {
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.item input {
+    max-width: 90px;
+}
+
+
+.input-config {
+    background-color: var(--background-color);
+    border: none;
+    border-radius: 8px;
+    height: 30px;
+    font-size: var(--md);
+    padding: 6px;
+    margin-bottom: 12px;
 }
 
 
@@ -191,6 +230,79 @@ nav img {
     margin-top: 4%;
     color: var(--color-content);
 }
+#login-Area {
+    z-index: 9999;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-menu);
+    padding: 20px;
+    border-radius: 6px;
+    color: var(--color-content);
+}
+
+.input {
+    background-color: var(--background-color);
+    border: none;
+    border-radius: 8px;
+    height: 30px;
+    font-size: var(--md);
+    padding: 6px;
+    margin-bottom: 12px;
+}
+
+.input-email {
+    margin-bottom: 22px;
+}
+
+.primary-button {
+    background: none;
+    border-radius: 8px;
+    border: none;
+    color: var(--color-content);
+    width: 100%;
+    cursor: pointer;
+    font-size: var(--md);
+    font-weight: bold;
+    height: 50px;
+}
+
+.login-button {
+    margin-top: 14px;
+    margin-bottom: 30px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form button {
+    color: var(--color-content);
+    text-decoration: none;
+    font-size: var(--sm);
+    text-align: center;
+    margin-bottom: 52px;
+}
+
+.secondary-button {
+    background: none;
+    border-radius: 8px;
+    border: 1px solid var(--background-color);
+    color: var(--color-content);
+    width: 100%;
+    cursor: pointer;
+    font-size: var(--md);
+    font-weight: bold;
+    height: 50px;
+}
+
 
 @media (max-width: 640px) {
     .menu-nav {
@@ -214,9 +326,4 @@ nav img {
 
 
     }
-}
-.SvgC{
-display: flex;
-justify-items: center;
-justify-content: center;
 }

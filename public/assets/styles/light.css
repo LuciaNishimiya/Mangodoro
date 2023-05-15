@@ -4,4 +4,7 @@
     --tomato: #AA0000;
     --color-content: #4D4D4D;
     --light-mode: none;
+    --sm: 14px;
+    --md: 16px;
+    --lg: 18px;
 }

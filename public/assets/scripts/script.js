@@ -1,4 +1,3 @@
-
 const button = {
     // Navbar buttons
     statistics: document.getElementById("statistics-button"),
@@ -13,7 +12,7 @@ const button = {
     shareMobile: document.getElementById("share-mobile-button"),
 
     // menus 
-    menus: document.getElementById('menuOverlay'),
+    menus: document.getElementById('menu-Overlay'),
     close: document.getElementById("close-menu-button"),
     mobile: document.getElementById("mobile-nav-button"),
 
@@ -22,31 +21,39 @@ const button = {
     stop: document.getElementById("stop-button"),
     next: document.getElementById("next-button"),
 
-}
+};
 
-button.statistics.addEventListener('click', () => {
-    menuimport("statistics");
-});
-button.config.addEventListener('click', () => {
-    menuimport("config");
-});
+// Navbar buttons Listener
 
-button.share.addEventListener('click', test)
+button.darkmode.addEventListener('click', darkmode);
 
-
-button.close.addEventListener('click', closeMenu)
 button.mobile.addEventListener('click', () => {
     menuimport("mobile");
 });
+let loginTrue = true;
+if (loginTrue) {
+    
+button.statistics.addEventListener('click', () => {
+    menuimport("statistics");
+});
 
-button.start.addEventListener('click', test)
-button.stop.addEventListener('click', test)
-button.next.addEventListener('click', test)
+button.config.addEventListener('click', () => {
+    menuimport("config");
+});
+button.share.addEventListener('click', test);
+
+// menus buttons Listener
+button.close.addEventListener('click', closeMenu);
 
 
-// svg 
+// controls buttons Listener
+button.start.addEventListener('click', test);
+button.stop.addEventListener('click', test);
+button.next.addEventListener('click', test);
 
+}
 
+// svg loader
 function svgL() {
     const svgList = document.querySelectorAll("span");
 
@@ -58,24 +65,19 @@ function svgL() {
                 .then(text => {
                     svgSel.innerHTML = text;
                 });
-
-        } else {
-            console.log(svgList[i].className == "SvgC")
         }
     }
-}
+};
 
 svgL();
 
-
-
+//pruebita uwu
 function test() {
     clock.play();
     alert("¡Haz hecho clic en el botón!");
 };
 
 // darkmode  
-button.darkmode.addEventListener('click', darkmode);
 let themecolor = "light";
 function darkmode() {
     const themeLink = document.getElementById('theme-link');
@@ -90,11 +92,9 @@ function darkmode() {
             break;
     }
 };
-//timers
 
 //sounds
 let clock = new Audio('./assets/sounds/clock.mp3');
-
 
 // Overlay menu 
 let MenuStatus = "close";
@@ -113,13 +113,29 @@ function closeMenu() {
 }
 
 function menuimport(menu) {
+    
     fetch(`./menus/${menu}.html`)
         .then(res => res.text())
         .then(text => {
             const menuContainer = document.getElementById("menu-container");
-            menuContainer.innerHTML = "";
             menuContainer.innerHTML = text;
         })
 
     menuOverlay();
 }
+
+
+//if (loginTrue) {
+ //   button.menus.style.display = 'none';
+//} else if (!loginTrue) {
+ //   button.menus.style.display = 'flex';
+//}
+//function loginArea() {
+  //  if (MenuStatus == "close") {
+    //    button.menus.style.display = 'flex';
+     //   MenuStatus = "open";
+    //} else {
+      //  button.menus.style.display = 'none';
+       // MenuStatus = "close";
+    //}
+//}

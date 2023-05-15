@@ -33,10 +33,55 @@
                 </ul>
             </div>
         </nav>
-        <div id="menuOverlay">
+<div id="login-Area" style="display: none;">
+    <div class="login">
+
+        <h1>login to access</h1>
+        <div class="form-container">
+        
+            <form action="/" class="form">
+            <label for="email" class="label">Email address</label>
+            <input type="email" id="email" placeholder="Pomomo@example.com" class="input input-email">
+
+            <label for="password" class="label">Password</label>
+            <input type="password" placeholder="********" id="new-password" class="input input-password">
+            <input type="submit" value="Log in" class="primary-button login-button">
+            <button class="secondary-button">Froget my password</button>
+        </form>
+       <button class="secondary-button">Don't have an account? Sign up</button>
+        </div>
+    </div>
+
+    <div class="Register" style="display: none;" >
+        <div class="form-container">
+          <h1 class="title">Register to access</h1>
+    
+          <form action="/" class="form">
+            <div>
+              <label for="name" class="label">Name</label>
+              <input type="text" id="name" placeholder="Username" class="input input-name">
+    
+              <label for="email" class="label">Email</label>
+              <input type="email" id="email" placeholder="Pomomo@example.com" class="input input-email">
+    
+              <label for="password" class="label">Password</label>
+              <input type="password" id="password" placeholder="*********" class="input input-password">
+            </div>
+    
+            <input type="submit" value="Create" class="primary-button login-button">
+           <p>You have an account? <a href="">Log in</a></p>
+          </form>
+        </div>
+      </div>
+
+
+
+</div>
+
+
+        <div id="menu-Overlay">
             <button id="close-menu-button"> <span id="x-close" class="SvgC"></button>
             <div id="menu-container"></div>
-
         </div>
     </header>
     <section class="pomodoro-container"><span id="clock" class="SvgC"></span>
@@ -60,6 +105,8 @@
     </section>
     <footer></footer>
     <script src="./assets/scripts/script.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
 </body>
 
 </html>
