@@ -68,8 +68,8 @@ function svgL() {
         }
     }
 };
-
 svgL();
+
 
 //pruebita uwu
 function test() {
@@ -139,3 +139,4 @@ function menuimport(menu) {
        // MenuStatus = "close";
     //}
 //}
+

@@ -184,13 +184,14 @@ label{
 }
 
 .pomodoro-container svg {
-    width: 30%;
+    width: 98px;
     height: auto;
+    padding-bottom: 30px;
 }
 
 .timer p {
     margin: 0;
-    font-size: 99px;
+    font-size: 110px;
     margin-top: 0%;
     color: var(--color-content);
 }
