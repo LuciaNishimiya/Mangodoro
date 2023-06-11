@@ -1,57 +1,11 @@
 const button = {
-    // Navbar buttons
-    statistics: document.getElementById("statistics-button"),
-    darkmode: document.getElementById("darkmode-button"),
-    config: document.getElementById("config-button"),
-    share: document.getElementById("share-button"),
-
-    // Mobile Navbar buttons
-    statisticsMobile: document.getElementById("statistics-mobile-button"),
-    darkmodeMobile: document.getElementById("darkmode-mobile-button"),
-    configMobile: document.getElementById("config-mobile-button"),
-    shareMobile: document.getElementById("share-mobile-button"),
-
-    // menus 
     menus: document.getElementById('menu-Overlay'),
     close: document.getElementById("close-menu-button"),
-    mobile: document.getElementById("mobile-nav-button"),
-
-    // controls buttons 
-    start: document.getElementById("start-button"),
-    stop: document.getElementById("stop-button"),
-    next: document.getElementById("next-button"),
-
 };
 
-// Navbar buttons Listener
-
-button.darkmode.addEventListener('click', darkmode);
-
-button.mobile.addEventListener('click', () => {
-    menuimport("mobile");
-});
-let loginTrue = true;
-if (loginTrue) {
-    
-button.statistics.addEventListener('click', () => {
-    menuimport("statistics");
-});
-
-button.config.addEventListener('click', () => {
-    menuimport("config");
-});
-button.share.addEventListener('click', test);
-
-// menus buttons Listener
-button.close.addEventListener('click', closeMenu);
 
 
-// controls buttons Listener
-button.start.addEventListener('click', test);
-button.stop.addEventListener('click', test);
-button.next.addEventListener('click', test);
 
-}
 
 // svg loader
 function svgL() {
@@ -95,7 +49,11 @@ function darkmode() {
 
 //sounds
 let clock = new Audio('./assets/sounds/clock.mp3');
+function mobileMenu(menu) {
+    menuOverlay()
+    menuimport(menu)
 
+} 
 // Overlay menu 
 let MenuStatus = "close";
 function menuOverlay() {

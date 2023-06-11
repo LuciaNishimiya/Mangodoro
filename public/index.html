@@ -20,67 +20,71 @@
             </div>
             <div class="menu-nav">
                 <ul>
-                    <li><button id="statistics-button"><span id="statistics" class="SvgC"></span></button>
+                    <li><button id="statistics-button"><span id="statistics" class="SvgC"
+                                onclick="menuimport('statistics')"></span></button>
                     </li>
-                    <li><button id="darkmode-button"><span id="darkmode" class="SvgC"></span></button></li>
-                    <li><button id="config-button"><span id="config" class="SvgC"></span></button></li>
-                    <li><button id="share-button"><span id="share" class="SvgC"></span></button></li>
+                    <li><button id="darkmode-button"><span id="darkmode" class="SvgC"
+                                onclick="darkmode()"></span></button></li>
+                    <li><button id="config-button"><span id="config" class="SvgC"
+                                onclick="menuimport('config')"></span></button></li>
+                    <li><button id="share-button"><span id="share" class="SvgC" onclick="test()"></span></button></li>
                 </ul>
             </div>
             <div class="mobile-menu-nav">
                 <ul>
-                    <li><button id="mobile-nav-button"><span id="down" class="SvgC"></button></li>
+                    <li><button id="mobile-nav-button"><span id="down" class="SvgC"
+                                onclick="menuimport('mobile')"></button></li>
                 </ul>
             </div>
         </nav>
-<div id="login-Area" style="display: none;">
-    <div class="login">
+        <div id="login-Area" style="display: none;">
+            <div class="login">
 
-        <h1>login to access</h1>
-        <div class="form-container">
-        
-            <form action="/" class="form">
-            <label for="email" class="label">Email address</label>
-            <input type="email" id="email" placeholder="Pomomo@example.com" class="input input-email">
+                <h1>login to access</h1>
+                <div class="form-container">
 
-            <label for="password" class="label">Password</label>
-            <input type="password" placeholder="********" id="new-password" class="input input-password">
-            <input type="submit" value="Log in" class="primary-button login-button">
-            <button class="secondary-button">Froget my password</button>
-        </form>
-       <button class="secondary-button">Don't have an account? Sign up</button>
-        </div>
-    </div>
+                    <form action="/" class="form">
+                        <label for="email" class="label">Email address</label>
+                        <input type="email" id="email" placeholder="Pomomo@example.com" class="input input-email">
 
-    <div class="Register" style="display: none;" >
-        <div class="form-container">
-          <h1 class="title">Register to access</h1>
-    
-          <form action="/" class="form">
-            <div>
-              <label for="name" class="label">Name</label>
-              <input type="text" id="name" placeholder="Username" class="input input-name">
-    
-              <label for="email" class="label">Email</label>
-              <input type="email" id="email" placeholder="Pomomo@example.com" class="input input-email">
-    
-              <label for="password" class="label">Password</label>
-              <input type="password" id="password" placeholder="*********" class="input input-password">
+                        <label for="password" class="label">Password</label>
+                        <input type="password" placeholder="********" id="new-password" class="input input-password">
+                        <input type="submit" value="Log in" class="primary-button login-button">
+                        <button class="secondary-button">Froget my password</button>
+                    </form>
+                    <button class="secondary-button">Don't have an account? Sign up</button>
+                </div>
             </div>
-    
-            <input type="submit" value="Create" class="primary-button login-button">
-           <p>You have an account? <a href="">Log in</a></p>
-          </form>
+
+            <div class="Register" style="display: none;">
+                <div class="form-container">
+                    <h1 class="title">Register to access</h1>
+
+                    <form action="/" class="form">
+                        <div>
+                            <label for="name" class="label">Name</label>
+                            <input type="text" id="name" placeholder="Username" class="input input-name">
+
+                            <label for="email" class="label">Email</label>
+                            <input type="email" id="email" placeholder="Pomomo@example.com" class="input input-email">
+
+                            <label for="password" class="label">Password</label>
+                            <input type="password" id="password" placeholder="*********" class="input input-password">
+                        </div>
+
+                        <input type="submit" value="Create" class="primary-button login-button">
+                        <p>You have an account? <a href="">Log in</a></p>
+                    </form>
+                </div>
+            </div>
+
+
+
         </div>
-      </div>
-
-
-
-</div>
 
 
         <div id="menu-Overlay">
-            <button id="close-menu-button"> <span id="x-close" class="SvgC"></button>
+            <button id="close-menu-button"> <span id="x-close" class="SvgC"  onclick="menuOverlay()"></button>
             <div id="menu-container"></div>
         </div>
     </header>
@@ -93,10 +97,10 @@
         </div>
         <div class="controls-container">
             <ul>
-                <li><button id="start-button"><span id="start" class="SvgC"></span></button></li>
+                <li><button id="start-button"><span id="start" class="SvgC" onclick="test()"></span></button></li>
 
-                <li><button id="stop-button"><span id="stop" class="SvgC"></span></button></li>
-                <li><button id="next-button"><span id="next" class="SvgC"></span></button></li>
+                <li><button id="stop-button"><span id="stop" class="SvgC" onclick="test()"></span></button></li>
+                <li><button id="next-button"><span id="next" class="SvgC" onclick="test()"></span></button></li>
             </ul>
         </div>
         <div class="rounds-container">
@@ -105,7 +109,6 @@
     </section>
     <footer></footer>
     <script src="./assets/scripts/script.js"></script>
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
 </body>
 
 </html>
