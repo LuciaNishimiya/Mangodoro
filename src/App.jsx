@@ -1,35 +1,53 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useEffect } from 'react'
 import './App.css'
+import { api } from './services/api'
+import Clock from './components/clock.jsx'
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [apiData, setApiData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const dataLive = await api();
+        setApiData(dataLive);
+      } catch (error) {
+        setApiData({ error: "Error al consultar la API" });
+      }
+    };
+
+    fetchData();
+    const intervalId = setInterval(fetchData, 1000);
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+
+    <div>
+      <section className="pomodoro-container">
+
+        <div className="timer">
+          <p>{apiData.status}</p>
+          <Clock
+            error={apiData.error}
+            minutes={apiData.minutes}
+            seconds={apiData.seconds}
+          />
+          <p>{apiData.error}</p>
+
+        </div>
+        <p><span></span></p>
+      </section>
+    </div>
+
+
+  );
 }
 
-export default App
+export default App;
