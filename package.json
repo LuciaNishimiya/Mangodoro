@@ -1,18 +1,26 @@
 {
-  "name": "mangodoro",
-  "version": "1.0.0",
-  "description": "Mangodoro es una plataforma basada en Node.js, Socket.IO y Express que te permite disfrutar de la técnica Pomodoro en un entorno colaborativo y competitivo. Trabaja en bloques de tiempo enfocados, compite con otros usuarios y maximiza tu productividad.",
-  "main": "index.js",
+  "name": "mangodorobot",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "test": "npm start"
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
   },
-  "keywords": [
-    "pomodoro"
-  ],
-  "author": "Lucia_Nishimiya",
-  "license": "MIT",
   "dependencies": {
-    "express": "^4.18.2",
-    "socket.io": "^4.6.1"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react-swc": "^3.3.2",
+    "eslint": "^8.45.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "vite": "^4.4.5"
   }
 }
