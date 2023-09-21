@@ -8,11 +8,11 @@ const client = new Client();
 import { setTimers, timers } from './services/timer.js';
 import ttsfn from './services/tts.js';
 
-
+let ttsAudioUrl;
 async function tts(text) {
     try {
         const url = await ttsfn({ text: text });
-        console.log('URL del archivo descargado:', url);
+        ttsAudioUrl = url;
     } catch (error) {
         console.error('Error:', error);
     }
@@ -28,12 +28,19 @@ app.use(cors({
     credentials: true,
 }));
 
+
+
+app.get("/api/tts", (_req, res) => {
+
+    res.json(ttsAudioUrl);
+
+});
+
 app.get("/api/timers", (_req, res) => {
 
     res.json(timers);
 
 });
-
 
 client.on('message', (message) => {
     if (!message.content.startsWith(PREFIX)) return;
