@@ -1,6 +1,6 @@
-export async function api() {
+export async function api(url) {
   try {
-    const response = await fetch(`http://localhost:4000/api/timers`);
+    const response = await fetch(url);
     if (!response.ok) {
       throw new Error(`La solicitud falló con el código de estado ${response.status}`);
     }
