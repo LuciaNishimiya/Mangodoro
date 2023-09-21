@@ -6,17 +6,8 @@ import { Client } from 'discord.js-selfbot-v13';
 const client = new Client();
 
 import { setTimers, timers } from './services/timer.js';
-import ttsfn from './services/tts.js';
+import tts from './services/tts.js';
 
-let ttsAudioUrl;
-async function tts(text) {
-    try {
-        const url = await ttsfn({ text: text });
-        ttsAudioUrl = url;
-    } catch (error) {
-        console.error('Error:', error);
-    }
-}
 // prueba de funciones
 setTimers({ stop: false, work: 1, breaks: 1, });
 
@@ -30,11 +21,6 @@ app.use(cors({
 
 
 
-app.get("/api/tts", (_req, res) => {
-
-    res.json(ttsAudioUrl);
-
-});
 
 app.get("/api/timers", (_req, res) => {
 
@@ -48,13 +34,14 @@ client.on('message', (message) => {
 
     const args = message.content.slice(PREFIX.length).trim().split(/ +/);
     const command = args.shift().toLowerCase();
-
+    const textoTTS = args.join(' ');
     switch (command) {
         case 'help':
             message.reply(`# ¡Hola! Estoy aquí para ayudarte! \n ## Lista de Comandos \n - ${SUS.embed} !pomo sus${SUS.embed} gfgfgfdgdfg vbhgh \n - ${SUS.embed} !pomo sus${SUS.embed} \n - ${SUS.embed} !pomo sus${SUS.embed} \n - ${SUS.embed} !pomo sus${SUS.embed}\n - sus`);
             break;
         case 'tts':
-            tts(message.content)
+
+            tts({ text: textoTTS });
             break;
         default:
             message.reply(`# uso ${SUS.embed} !pomo sus${SUS.embed}`);

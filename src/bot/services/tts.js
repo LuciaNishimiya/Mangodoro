@@ -3,20 +3,13 @@ import fs from 'fs';
 import googleTTS from 'google-tts-api';
 
 
-function genFileName() {
-  const filePath = './public/tts/';
-  const file1 = `${filePath}sus1`;
-  const file2 = `${filePath}sus2`;
+import { exec } from 'child_process';
 
-  if (fs.existsSync(file1)) {
-    fs.unlinkSync(file1);
-    return file2;
-  } else if (fs.existsSync(file2)) {
-    fs.unlinkSync(file2);
-    return file1;
-  } else {
-    return file1;
-  }
+function playAudio(audioFileName) {
+  exec(`mpg321 ${audioFileName}`, (stdout) => {
+
+    return stdout
+  });
 }
 
 
@@ -24,7 +17,7 @@ function genFileName() {
 function tts({ text }) {
   return new Promise((resolve, reject) => {
     try {
-      const audioFileName = genFileName();
+      const audioFileName = './tts.mp3'
       const audioFile = fs.createWriteStream(audioFileName);
 
       const audioUrl = googleTTS.getAudioUrl(text, {
@@ -38,7 +31,7 @@ function tts({ text }) {
 
         audioFile.on('finish', () => {
           audioFile.close();
-          resolve(audioFileName); // Devuelve el nombre del archivo cuando la descarga se completa
+          resolve(playAudio(audioFileName));
         });
       });
 
@@ -50,6 +43,7 @@ function tts({ text }) {
       reject(error);
     }
   });
+
 }
 
 
