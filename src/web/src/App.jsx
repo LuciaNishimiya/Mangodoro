@@ -2,12 +2,15 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import { api } from './services/api'
 import Clock from './components/clock.jsx'
-
+import Sound from './components/sound.jsx'
 
 function App() {
 
   const [apiData, setApiData] = useState([]);
   useEffect(() => {
+
+
+
     const fetchData = async () => {
       try {
         const dataLive = await api(`http://localhost:4000/api/timers`);
@@ -27,13 +30,14 @@ function App() {
 
   }, []);
 
+
   return (
 
     <div>
       <section className="pomodoro-container">
 
         <div className="timer">
-
+          <Sound status={apiData.status} />
           <p>{apiData.status}</p>
           <Clock
             error={apiData.error}

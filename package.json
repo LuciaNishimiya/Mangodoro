@@ -5,21 +5,24 @@
   "type": "module",
   "scripts": {
     "bot": "nodemon ./src/bot/index.js",
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
     "cors": "^2.8.5",
+    "discord-stream-client": "^1.4.3",
     "discord.js-selfbot-v13": "^2.14.11",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "ffmpeg-static": "^5.2.0",
+    "ffprobe-static": "^3.1.0",
     "google-tts-api": "^2.0.2",
+    "puppeteer": "^21.3.4",
+    "puppeteer-stream": "^3.0.7",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "socket.io": "^4.7.2",
-    "socket.io-client": "^4.7.2"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
