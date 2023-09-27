@@ -47,7 +47,7 @@ function App() {
           <p>{apiData.error}</p>
 
         </div>
-        <p><span></span></p>
+        <p><span>{apiData.session}/{apiData.sessions}</span></p>
       </section>
 
     </div>
