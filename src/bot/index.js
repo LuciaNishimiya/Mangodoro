@@ -1,51 +1,50 @@
-import { PORT, TOKEN, PREFIX } from './../config.js'
-
+import { PORT, TOKEN, PREFIX, } from './../config.js'
+import fs from 'fs';
 import express from 'express';
 import cors from 'cors';
+import { DiscordStreamClient } from 'discord-stream-client'
 import { Client } from 'discord.js-selfbot-v13';
-const client = new Client();
+import { timers } from './services/timer.js'
 
-import { setTimers, timers } from './services/timer.js';
-import tts from './services/tts.js';
 
-// prueba de funciones
-setTimers({ stop: false, work: 1, breaks: 1, });
+const client = new Client({
+    checkUpdate: false,
+});
+
+const StreamClient = new DiscordStreamClient(client);
+
+StreamClient.setResolution('720p');
+StreamClient.setVideoCodec('H264');
+
 
 const app = express();
 
 app.use(cors({
-    origin: 'http://localhost:5173',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
+    credentials: false,
 }));
-
-
-
-
 app.get("/api/timers", (_req, res) => {
-
     res.json(timers);
-
 });
 
-client.on('message', (message) => {
-    if (!message.content.startsWith(PREFIX)) return;
-    const SUS = { embed: '`' }
-
-    const args = message.content.slice(PREFIX.length).trim().split(/ +/);
-    const command = args.shift().toLowerCase();
-    const textoTTS = args.join(' ');
-    switch (command) {
-        case 'help':
-            message.reply(`# ¡Hola! Estoy aquí para ayudarte! \n ## Lista de Comandos \n - ${SUS.embed} !pomo sus${SUS.embed} gfgfgfdgdfg vbhgh \n - ${SUS.embed} !pomo sus${SUS.embed} \n - ${SUS.embed} !pomo sus${SUS.embed} \n - ${SUS.embed} !pomo sus${SUS.embed}\n - sus`);
-            break;
-        case 'tts':
-
-            tts({ text: textoTTS });
-            break;
-        default:
-            message.reply(`# uso ${SUS.embed} !pomo sus${SUS.embed}`);
-            break;
+const commandsList = new Map();
+const commandFolders = fs.readdirSync('./src/bot/commands');
+for (const folder of commandFolders) {
+    const commandimport = await import(`./commands/${folder}/index.js`);
+    commandsList.set(commandimport.name, commandimport);
+}
+client.on('message', async message => {
+    const prefix = PREFIX || `<@${client.user.id}>`
+    if (!message.content.startsWith(prefix) || message.author.bot) return;
+    const args = message.content.slice(prefix.length).trim().split(/ +/);
+    const commandName = args.shift().toLowerCase();
+    if (!commandsList.has(commandName)) return message.reply(`El comando no existe. Usa ${prefix} help para ver la lista de comandos.`);
+    const command = commandsList.get(commandName);
+    try {
+        await command.execute({ message, args, commandsList, prefix, client });
+    } catch (error) {
+        console.error(error);
+        message.reply('Hubo un error al ejecutar el comando.');
     }
 });
 
@@ -56,7 +55,7 @@ client.on('ready', () => {
 client.login(TOKEN);
 
 app.listen(PORT, () => {
-    console.log(`listening on ${PORT}`);
+    console.log(`Api escuchando en: ${PORT}`);
 });
 
 
