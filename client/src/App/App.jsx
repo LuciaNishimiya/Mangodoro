@@ -2,6 +2,7 @@ import { Clock } from '../Components/Clock'
 import { ClockIcon } from '../Components/Icons'
 import { Layout } from '../Components/Layout'
 import { NavBar } from '../Components/NavBar'
+import { Status } from '../Components/Status'
 import './App.css'
 function App() {
 
@@ -9,6 +10,7 @@ function App() {
     <>
       <NavBar />
       <Layout>
+        <Status status='work' />
         <Clock minutes={60} seconds={'44'} />
       </Layout>
     </>
