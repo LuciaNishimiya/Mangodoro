@@ -1,0 +1,16 @@
+.clock {
+    display: flex;
+    flex-direction: row;
+    font-size: 6rem;
+    text-align: center;
+}
+
+@media (max-width: 660px) {
+    .clock {
+        flex-direction: column;
+    }
+
+    .clock-colon {
+        display: none;
+    }
+}
