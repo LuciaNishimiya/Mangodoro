@@ -3,6 +3,7 @@
     flex-direction: row;
     font-size: 6rem;
     text-align: center;
+    justify-content: center;
 }
 
 @media (max-width: 660px) {
