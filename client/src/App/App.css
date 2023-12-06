@@ -6,7 +6,7 @@ body {
   margin: 0;
   color: var(--contentColor);
   background-color: var(--backgroundColor);
-  font-family: Quicksand;
+
 }
 #root {
   display: flex;
