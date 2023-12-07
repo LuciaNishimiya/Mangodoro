@@ -1,6 +1,10 @@
+import { useContext } from "react";
+import { PomodoroContext } from "../../Context";
 import { TomatoIcon, ShareIcon, ConfigIcon, MoonIcon, StatisticsIcon, MenuIcon } from "../Icons"
 import './styles.css'
+import { SettingsModal } from "../SettingsM";
 export function NavBar() {
+    const { setModalContent } = useContext(PomodoroContext);
     return (
         <nav className="navbar">
             <ul className="logo">
@@ -17,7 +21,7 @@ export function NavBar() {
                 </li>
                 <li>
 
-                    <button><ConfigIcon /></button>
+                    <button onClick={() => setModalContent({ title: 'Settings', content: <SettingsModal /> })}><ConfigIcon /></button>
                 </li>
                 <li>
                     <button><ShareIcon /></button>
