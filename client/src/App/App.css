@@ -1,6 +1,7 @@
 :root {
   --backgroundColor: #fff4e0;
   --contentColor: #4d4d4d;
+  --menuColor: #FFBF9B;
 }
 body {
   margin: 0;
@@ -21,7 +22,7 @@ svg {
 }
 button {
   background-color: transparent;
-  color: transparent;
+  color: var(--contentColor);
   padding: 0px;
   border: none;
   cursor: pointer;
@@ -32,4 +33,7 @@ li {
   padding: 0;
   margin: 0;
   list-style: none;
+}
+input {
+  color: var(--contentColor);
 }
