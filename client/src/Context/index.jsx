@@ -15,7 +15,7 @@ export const PomodoroProvider = ({ children }) => {
         workTime: 25,
         breakTime: 5,
         rounds: 15,
-        roomId: randomNum(1000, 9999),
+        roomId: randomNum(1000, 9999).toString(),
     });
     const [ModalContent, setModalContent] = useState(false);
     TimerUpdate(setTimer)
