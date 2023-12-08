@@ -10,12 +10,13 @@ import { PomodoroContext } from "../Context"
 
 import { Modal } from '../Components/ModalMenu'
 import { ErrorMsg } from '../Components/ErrorMsg'
+import { PlaySound } from '../Components/PlaySound'
 function App() {
   const { timer } = useContext(PomodoroContext);
   const { minutes, seconds, status, rounds } = timer
-
   return (
     <>
+      <PlaySound status={status} />
       <ErrorMsg />
       <Modal />
       <NavBar />
