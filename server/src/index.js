@@ -9,24 +9,16 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 io.on('connection', (socket) => {
-    console.log(`Cliente conectado: ${socket.id}`);
+    console.log(`Connected client: ${socket.id}`);
 
     socket.on('createRoom', async (settings) => {
         console.log(settings)
+        // If the room does not exist, create a timer
         if (!roomState.has(settings.roomId)) {
-            const timer = createTimer({ settings, roomState });
-            timer.ticker(({ raw }) => {
-                io.to(settings.roomId).emit('timer',
-                    {
-                        seconds: raw.ss,
-                        minutes: raw.MM,
-                        status: timer.pomodoroStatus,
-                        owner: settings.username
-                    });
-            });
-
+            const timer = createTimer({ settings, roomState, io });
             // Store the timer
-            roomState.set(settings.roomId,
+            roomState.set(
+                settings.roomId,
                 {
                     timer,
                     owner: settings.username
@@ -34,11 +26,21 @@ io.on('connection', (socket) => {
         }
 
         socket.join(settings.roomId);
-        console.log(`Socket ${socket.id} joined room ${settings.roomId}`);
+        console.log(`Socket ${socket.id} User ${settings.username} joined room ${settings.roomId}`);
 
         // If the room already exists, start the timer
-        if (roomState.get(settings.roomId).timer) {
+        if (roomState.get(settings.roomId).timer) {        
             roomState.get(settings.roomId).timer.start();
+        }
+    });
+
+    // join a room that already exists
+    socket.on('joinRoom', async (settings) => {
+        if (roomState.has(settings.roomId)) {
+            socket.join(settings.roomId);
+            console.log(`Socket ${socket.id} User ${settings.username} joined room ${settings.roomId}`);
+        } else {
+            socket.emit('error', { error: 'The room does not exist', code: 404 })
         }
     });
 

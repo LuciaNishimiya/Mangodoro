@@ -8,5 +8,5 @@ export const TimerUpdate = (setData) => {
         return () => {
             socket.off('timer');
         };
-    }, []);
+    });
 }
