@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 import { TimerUpdate } from "../Services/Timer";
+import { randomNum } from "../Services/RandomNumber";
 export const PomodoroContext = createContext()
 export const PomodoroProvider = ({ children }) => {
 
@@ -14,7 +15,7 @@ export const PomodoroProvider = ({ children }) => {
         workTime: 25,
         breakTime: 5,
         rounds: 15,
-        roomId: '1343',
+        roomId: randomNum(1000, 9999),
     });
     const [ModalContent, setModalContent] = useState(false);
     TimerUpdate(setTimer)
