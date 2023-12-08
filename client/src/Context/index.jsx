@@ -6,6 +6,7 @@ export const PomodoroProvider = ({ children }) => {
     const [timer, setTimer] = useState({
         minutes: 0,
         seconds: 0,
+        rounds: { total: '0', current: '0' },
         status: 'stop'
     })
     const [settings, setSettings] = useState({

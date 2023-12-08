@@ -1,6 +1,6 @@
 import './styles.css'
-export function Sessions() {
+export function Sessions({ total, current }) {
     return (
-        <p className='sessions'>3/4</p>
+        <p className='sessions'>{current}/{total}</p>
     )
 }

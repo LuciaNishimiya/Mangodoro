@@ -11,19 +11,18 @@ import { PomodoroContext } from "../Context"
 import { Modal } from '../Components/ModalMenu'
 function App() {
   const { timer } = useContext(PomodoroContext);
-  const { minutes, seconds, status } = timer
+  const { minutes, seconds, status, rounds } = timer
 
   return (
     <>
       <Modal title='Settings'>
-
       </Modal>
       <NavBar />
       <Layout>
         <Status status={status} />
         <Clock minutes={minutes} seconds={seconds} />
         <Controls />
-        <Sessions />
+        <Sessions total={rounds.total} current={rounds.current} />
       </Layout>
     </>
   )
