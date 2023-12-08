@@ -9,14 +9,15 @@ import { useContext } from "react";
 import { PomodoroContext } from "../Context"
 
 import { Modal } from '../Components/ModalMenu'
+import { ErrorMsg } from '../Components/ErrorMsg'
 function App() {
   const { timer } = useContext(PomodoroContext);
   const { minutes, seconds, status, rounds } = timer
 
   return (
     <>
-      <Modal title='Settings'>
-      </Modal>
+      <ErrorMsg />
+      <Modal />
       <NavBar />
       <Layout>
         <Status status={status} />

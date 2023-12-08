@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 import { TimerUpdate } from "../Services/Timer";
 import { randomNum } from "../Services/RandomNumber";
+import { CatchSocketError } from "../Services/CatchSocketError";
 export const PomodoroContext = createContext()
 export const PomodoroProvider = ({ children }) => {
 
@@ -10,6 +11,7 @@ export const PomodoroProvider = ({ children }) => {
         rounds: { total: '0', current: '0' },
         status: 'stop'
     })
+    TimerUpdate(setTimer)
     const [settings, setSettings] = useState({
         username: '',
         workTime: 25,
@@ -18,7 +20,8 @@ export const PomodoroProvider = ({ children }) => {
         roomId: randomNum(1000, 9999).toString(),
     });
     const [ModalContent, setModalContent] = useState(false);
-    TimerUpdate(setTimer)
+    const [appError, setError] = useState(false);
+    CatchSocketError({ appError, setError })
     return (
         <PomodoroContext.Provider value={{
             timer,
@@ -26,7 +29,9 @@ export const PomodoroProvider = ({ children }) => {
             settings,
             setSettings,
             ModalContent,
-            setModalContent
+            setModalContent,
+            appError,
+            setError
         }} >
             {children}
         </PomodoroContext.Provider >)
