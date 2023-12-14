@@ -1,11 +1,10 @@
 .ModalMenu {
-    top: 60px;
     display: flex;
     flex-direction: column;
     z-index: 10;
     position: fixed;
     width: 400px;
-    height: 420px;
+
     background-color: var(--menuColor);
     border-radius: 4px;
     padding: 40px;
