@@ -1,10 +1,11 @@
 import { useContext } from "react";
-import { PomodoroContext } from "../../Context";
 import { TomatoIcon, ShareIcon, ConfigIcon, MoonIcon, StatisticsIcon, MenuIcon } from "../Icons"
 import './styles.css'
-import { SettingsModal } from "../SettingsM";
+import { SettingsModal } from "../ModalSettings";
+import { ModalJoin } from "../ModalJoin";
+import { ModalContext } from "../../Context/Modal";
 export function NavBar() {
-    const { setModalContent } = useContext(PomodoroContext);
+    const { setModalContent } = useContext(ModalContext);
     return (
         <nav className="navbar">
             <ul className="logo">
@@ -14,7 +15,7 @@ export function NavBar() {
             </ul>
             <ul className="menu-nav">
                 <li>
-                    <button><StatisticsIcon /></button>
+                    <button onClick={() => setModalContent({ title: 'Join a room', content: <ModalJoin /> })}><StatisticsIcon /></button>
                 </li>
                 <li>
                     <button><MoonIcon /></button>
