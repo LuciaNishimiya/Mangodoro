@@ -18,7 +18,7 @@ export function Home() {
             <Layout>
                 <Status status={status} />
                 <Clock minutes={minutes} seconds={seconds} />
-                <Controls />
+                <Controls status={status} />
                 <Sessions total={rounds.total} current={rounds.current} />
             </Layout>
         </>

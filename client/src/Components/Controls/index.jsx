@@ -1,11 +1,33 @@
-import { NextIcon, StartIcon, StopIcon } from '../Icons'
+
+import { useContext } from 'react';
+import { RoomSettingsContext } from '../../Context/RoomSettings';
+import { NextIcon, StartIcon, PauseIcon, StopIcon } from '../Icons'
 import './styles.css'
-export function Controls() {
+import { TimerControls } from '../../Services/TimerControls';
+import { JoinSettingsContext } from '../../Context/JoinSettings';
+
+export function Controls({ status }) {
+    const { settings } = useContext(RoomSettingsContext);
+    const { joinSettings } = useContext(JoinSettingsContext);
+    function controls(action) {
+        if (settings.username !== '') {
+            TimerControls({ action, ...settings })
+        }
+        if (joinSettings.username !== '') {
+            TimerControls({ action, ...joinSettings })
+        }
+    }
     return (
         <div className="controls">
-            <button><StartIcon /></button>
-            <button><StopIcon /></button>
-            <button><NextIcon /></button>
+            <button onClick={() =>
+                (status === 'pause' || status === 'stop' || status === 'finished') ?
+                    controls('start') : controls('pause')}
+            >
+                {status === 'pause' || status === 'stop' || status === 'finished' ?
+                    <StartIcon /> : <PauseIcon />}
+            </button>
+            <button onClick={() => { controls('stop') }}><StopIcon /></button>
+            <button onClick={() => { controls('next') }}><NextIcon /></button>
         </div>
     )
 }
