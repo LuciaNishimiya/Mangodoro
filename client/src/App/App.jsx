@@ -1,32 +1,39 @@
-import { Clock } from '../Components/Clock'
-import { Controls } from '../Components/Controls'
-import { Layout } from '../Components/Layout'
-import { NavBar } from '../Components/NavBar'
-import { Sessions } from '../Components/Sessions'
-import { Status } from '../Components/Status'
+import { SnackbarProvider } from 'notistack';
+import { Home } from '../pages/Home';
+import { NotFound } from '../pages/NotFound';
+import { Room } from '../pages/Room';
 import './App.css'
-import { useContext } from "react";
-import { PomodoroContext } from "../Context"
+import { useRoutes, BrowserRouter } from 'react-router-dom';
+import { Modal } from '../Components/ModalMenu';
+import { JoinSettingsProvider } from '../Context/JoinSettings';
+import { useOpenErrorMenu } from '../hooks/OpenErrorMenu';
+import { TimerProvider } from '../Context/Timers';
+import { RoomSettingsProvider } from '../Context/RoomSettings';
+function AppRoutes() {
+  return useRoutes([
+    { path: '/', element: <Home /> },
+    { path: '/room/:id', element: <Room /> },
+    { path: '/*', element: <NotFound /> },
+  ]);
+}
 
-import { Modal } from '../Components/ModalMenu'
-import { ErrorMsg } from '../Components/ErrorMsg'
-import { PlaySound } from '../Components/PlaySound'
 function App() {
-  const { timer } = useContext(PomodoroContext);
-  const { minutes, seconds, status, rounds } = timer
+  useOpenErrorMenu()
   return (
-    <>
-      <PlaySound status={status} />
-      <ErrorMsg />
-      <Modal />
-      <NavBar />
-      <Layout>
-        <Status status={status} />
-        <Clock minutes={minutes} seconds={seconds} />
-        <Controls />
-        <Sessions total={rounds.total} current={rounds.current} />
-      </Layout>
-    </>
+
+
+    <JoinSettingsProvider>
+      <TimerProvider>
+        <RoomSettingsProvider>
+          <BrowserRouter>
+            <SnackbarProvider />
+            <Modal />
+            <AppRoutes />
+          </BrowserRouter>
+        </RoomSettingsProvider>
+      </TimerProvider>
+    </JoinSettingsProvider>
+
   )
 }
 
