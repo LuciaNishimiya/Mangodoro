@@ -1,21 +1,15 @@
 import { useContext } from 'react';
 import './styles.css';
-import { PomodoroContext } from '../../Context';
-import { CloseIcon } from '../Icons';
-import { SettingsModal } from '../SettingsM';
+import { SettingsModal } from '../ModalSettings';
+import { ModalJoin } from '../ModalJoin';
+import { AppErrorContext } from '../../Context/AppErrors';
+import { ModalContext } from '../../Context/Modal';
 
 export const ErrorMsg = () => {
-    const { appError, setError, setModalContent } = useContext(PomodoroContext);
-
-    if (appError) {
+    const { appError, setError } = useContext(AppErrorContext);
+    const { setModalContent } = useContext(ModalContext);
         return (
-            <div className="ErrorMenu">
-                <div className="ModalMenuHeader">
-                    <h2>Error</h2>
-                    <button onClick={() => setError(false)}>
-                        <CloseIcon />
-                    </button>
-                </div>
+            <div className="ErrorMen">
                 <h3 className="ErrorMsg">{appError.error}</h3>
                 {appError.code === 404 ? (
                     <>
@@ -28,7 +22,10 @@ export const ErrorMsg = () => {
                         >
                             Create new room
                         </button>
-                        <button onClick={() => { location.reload(); }} className='ErrorBtn'>Try again</button>
+                        <button onClick={() => {
+                            setModalContent({ title: 'join room', content: <ModalJoin /> });
+                            setError(false);
+                        }} className='ErrorBtn'>Try again</button>
 
                     </>
                 ) : appError.code === 409 ? (
@@ -45,4 +42,4 @@ export const ErrorMsg = () => {
         );
     }
 
-};
+

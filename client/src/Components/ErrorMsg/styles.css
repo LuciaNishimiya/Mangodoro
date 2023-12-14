@@ -1,33 +1,6 @@
-.ErrorMenu {
-    top: auto;
-    display: flex;
-    flex-direction: column;
-    z-index: 500;
-    position: fixed;
-    background-color: var(--menuColor);
-    border-radius: 4px;
-    padding: 40px;
-    border: 1px solid;
-}
-
-.ErrorMenuHeader {
-    display: flex;
-    justify-content: space-between;
-}
-
-.ErrorMenuHeader h2 {
-    margin: 0;
-}
-
-.ErrorMenuHeader button {
-    width: 30px;
-}
-
 .ErrorMsg {
     margin-top: 20px;
 }
-
-
 
 .ErrorBtn {
     background-color: var(--backgroundColor);
@@ -36,5 +9,6 @@
     border-radius: 8px;
     height: 40px;
     margin-top: 19px;
+    margin: 5px;
     padding: 4px;
 }
