@@ -44,6 +44,13 @@ io.on('connection', (socket) => {
         }
     });
 
+    // Check if a room exists
+    socket.on('checkRoom', async (roomId) => {
+        if (!roomState.has(roomId)) {
+            socket.emit('error', { error: 'The room does not exist', code: 404 })
+        }
+    });
+
     socket.on('disconnect', () => {
         console.log(`Client disconnected: ${socket.id}`);
     });
