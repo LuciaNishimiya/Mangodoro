@@ -1,11 +1,13 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import './styles.css';
-import { PomodoroContext } from '../../Context';
 import { CreateRoom } from '../../Services/CreateRoom';
+import { ModalContext } from '../../Context/Modal';
+import { RoomSettingsContext } from '../../Context/RoomSettings';
+import { enqueueSnackbar } from 'notistack';
 
 export const SettingsModal = () => {
-    const { settings, setSettings, setModalContent } = useContext(PomodoroContext);
-    const [error, setError] = useState(false);
+    const { settings, setSettings } = useContext(RoomSettingsContext);
+    const { setModalContent } = useContext(ModalContext);
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setSettings((prevSettings) => ({
@@ -29,14 +31,16 @@ export const SettingsModal = () => {
             } else {
                 if (settings[key] === '') {
                     newErrors = `The ${key} field cannot be empty.`;
+
                 }
             }
 
         });
         if (newErrors) {
-            setError(newErrors);
+            enqueueSnackbar(newErrors, {
+                variant: 'error'
+            })
         } else {
-            setError(false);
             CreateRoom(settings)
             setModalContent(false)
         }
@@ -120,7 +124,6 @@ export const SettingsModal = () => {
             </div>
             <div className="item">
                 <button type="submit" className="SettingsSaveBtn">Save</button>
-                {error && <p className="SettingsError">{error}</p>}
             </div>
         </form>
     );
