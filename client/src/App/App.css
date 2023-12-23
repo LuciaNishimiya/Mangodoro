@@ -3,6 +3,7 @@
   --contentColor: #4d4d4d;
   --menuColor: #FFBF9B;
 }
+
 body {
   margin: 0;
   color: var(--contentColor);

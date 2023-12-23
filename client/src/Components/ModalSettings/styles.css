@@ -3,6 +3,25 @@
     flex-direction: column;
 }
 
+.ContainerSelectorButton{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.SelectorJoinBtn{
+    background-color: var(--backgroundColor);
+    font-size: var(--lg);
+    font-weight: bold;
+    border-radius: 8px;
+    height: 34px;
+    width: 180px;
+    margin-top: 9px;
+}
+
+.MarkBtnSelected{
+    border: 1px var(--contentColor) solid;
+}
+
 .SettingsForm input {
     text-align: center;
     background-color: var(--backgroundColor);

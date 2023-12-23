@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { TomatoIcon, ShareIcon, ConfigIcon, MoonIcon, StatisticsIcon, MenuIcon } from "../Icons"
 import './styles.css'
 import { SettingsModal } from "../ModalSettings";
-import { ModalJoin } from "../ModalJoin";
 import { ModalContext } from "../../Context/Modal";
 export function NavBar() {
     const { setModalContent } = useContext(ModalContext);
@@ -15,10 +14,15 @@ export function NavBar() {
             </ul>
             <ul className="menu-nav">
                 <li>
-                    <button onClick={() => setModalContent({ title: 'Join a room', content: <ModalJoin /> })}><StatisticsIcon /></button>
+                    <button onClick={() => setModalContent({ title: 'Statistics', content: <p>Statistics are not yet available</p> })}><StatisticsIcon /></button>
                 </li>
                 <li>
-                    <button><MoonIcon /></button>
+                    <button onClick={()=> {
+    document.documentElement.style.setProperty('--backgroundColor', '#4d4d4d');
+    document.documentElement.style.setProperty('--contentColor', '#fff4e0');
+    document.documentElement.style.setProperty('--menuColor', '#660000');
+    
+}}><MoonIcon /></button>
                 </li>
                 <li>
 

@@ -4,6 +4,7 @@ import { CreateRoom } from '../../Services/CreateRoom';
 import { ModalContext } from '../../Context/Modal';
 import { RoomSettingsContext } from '../../Context/RoomSettings';
 import { enqueueSnackbar } from 'notistack';
+import { ModalJoin } from '../ModalJoin';
 
 export const SettingsModal = () => {
     const { settings, setSettings } = useContext(RoomSettingsContext);
@@ -48,6 +49,10 @@ export const SettingsModal = () => {
 
 
     return (
+        <><div className='ContainerSelectorButton'>
+            <button className='SelectorJoinBtn MarkBtnSelected'>Create room</button>
+            <button className='SelectorJoinBtn'  onClick={()=>setModalContent({ title: 'Join a room', content: <ModalJoin /> })}>join room</button>
+            </div>
         <form action="" className='SettingsForm' onSubmit={handleSave}>
 
             <p>Account</p>
@@ -63,8 +68,7 @@ export const SettingsModal = () => {
                     className="input-config"
                     name="username"
                     value={settings.username}
-                    onChange={handleInputChange}
-                />
+                    onChange={handleInputChange} />
             </div>
             <p>Pomodoro</p>
             <div className="SettingsContainer">
@@ -78,8 +82,7 @@ export const SettingsModal = () => {
                         value={settings.workTime}
                         name="workTime"
                         onChange={handleInputChange}
-                        className="input-config timeSetting"
-                    />
+                        className="input-config timeSetting" />
                 </div>
 
                 <div className="item">
@@ -92,8 +95,7 @@ export const SettingsModal = () => {
                         value={settings.breakTime}
                         max="100"
                         name="breakTime"
-                        onChange={handleInputChange}
-                    />
+                        onChange={handleInputChange} />
                 </div>
 
                 <div className="item">
@@ -106,8 +108,7 @@ export const SettingsModal = () => {
                         max="200"
                         value={settings.rounds}
                         name="rounds"
-                        onChange={handleInputChange}
-                    />
+                        onChange={handleInputChange} />
                 </div>
             </div>
             <div className="item">
@@ -119,12 +120,11 @@ export const SettingsModal = () => {
                     maxLength='4'
                     value={settings.roomId}
                     name="roomId"
-                    onChange={handleInputChange}
-                />
+                    onChange={handleInputChange} />
             </div>
             <div className="item">
-                <button type="submit" className="SettingsSaveBtn">Save</button>
+                <button type="submit" className="SettingsSaveBtn">Create</button>
             </div>
-        </form>
+        </form></>
     );
 };
