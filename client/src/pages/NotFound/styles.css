@@ -1,0 +1,14 @@
+.Error-404 {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh; 
+}
+
+.Error-404 h1 {
+  font-size: 50px;
+  font-weight: bold;
+}
+.Error-404 button {
+    font-size: 20px;
+  }
