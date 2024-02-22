@@ -1,0 +1,40 @@
+:root {
+  --backgroundColor: #fff4e0;
+  --contentColor: #4d4d4d;
+  --menuColor: #FFBF9B;
+}
+
+body {
+  margin: 0;
+  color: var(--contentColor);
+  background-color: var(--backgroundColor);
+
+}
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+}
+button {
+  background-color: transparent;
+  color: var(--contentColor);
+  padding: 0px;
+  border: none;
+  cursor: pointer;
+}
+
+ul,
+li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+input {
+  color: var(--contentColor);
+}

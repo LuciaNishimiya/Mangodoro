@@ -1,0 +1,32 @@
+.ModalMenu {
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    position: fixed;
+    width: 400px;
+
+    background-color: var(--menuColor);
+    border-radius: 4px;
+    padding: 40px;
+}
+
+.ModalMenuHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ModalMenuHeader h2 {
+    margin: 0;
+}
+
+.ModalMenuHeader button {
+    width: 30px;
+}
+
+.ModalMenuContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 1px;
+    height: 100%;
+}

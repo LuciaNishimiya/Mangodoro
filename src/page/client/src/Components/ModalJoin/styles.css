@@ -1,0 +1,64 @@
+.JoinSettingsForm {
+    display: flex;
+    flex-direction: column;
+}
+.ContainerSelectorButton{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.SelectorJoinBtn{
+    background-color: var(--backgroundColor);
+    font-size: var(--lg);
+    font-weight: bold;
+    border-radius: 8px;
+    height: 34px;
+    width: 180px;
+    margin-top: 9px;
+}
+
+.MarkBtnSelected{
+    border: 1px var(--contentColor) solid;
+}
+.JoinSettingsForm input {
+    text-align: center;
+    background-color: var(--backgroundColor);
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    max-width: 90px;
+}
+
+.JoinSettingsForm label {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.JoinSettingsContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 1px solid var(--backgroundColor);
+}
+
+.JoinItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.JoinSettingsSaveBtn {
+    background-color: var(--backgroundColor);
+
+    font-size: var(--lg);
+    font-weight: bold;
+    border-radius: 8px;
+    height: 40px;
+    width: 90px;
+    margin-top: 19px;
+}
+
+.JoinSettingsError {
+    color: red;
+}

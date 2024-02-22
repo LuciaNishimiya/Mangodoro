@@ -1,0 +1,14 @@
+.ErrorMsg {
+    margin-top: 20px;
+}
+
+.ErrorBtn {
+    background-color: var(--backgroundColor);
+    font-size: var(--lg);
+    font-weight: bold;
+    border-radius: 8px;
+    height: 40px;
+    margin-top: 19px;
+    margin: 5px;
+    padding: 4px;
+}

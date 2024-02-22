@@ -1,0 +1,8 @@
+.pomo-status {
+    display: flex;
+    justify-content: center;
+}
+
+.pomo-status svg {
+    width: 120px;
+}

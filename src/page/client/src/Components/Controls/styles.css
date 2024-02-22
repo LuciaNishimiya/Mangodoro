@@ -1,0 +1,10 @@
+.controls {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.controls button {
+    width: 50px;
+}
