@@ -3,18 +3,17 @@
   --contentColor: #4d4d4d;
   --menuColor: #FFBF9B;
 }
-
+body, #root{
+  height: 100vh;
+}
 body {
   margin: 0;
   color: var(--contentColor);
   background-color: var(--backgroundColor);
-
 }
 #root {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 svg {

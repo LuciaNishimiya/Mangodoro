@@ -1,13 +1,15 @@
 .ModalMenu {
     display: flex;
+    position: absolute;
     flex-direction: column;
     z-index: 10;
-    position: fixed;
-    width: 400px;
-
+    min-width: 400px;
     background-color: var(--menuColor);
     border-radius: 4px;
     padding: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .ModalMenuHeader {
