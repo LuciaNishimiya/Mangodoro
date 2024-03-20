@@ -1,0 +1,1 @@
+Mangodoro is a collaborative real-time Pomodoro timer application, designed to boost productivity and teamwork collaboration. With Mangodoro, you can immerse yourself in your tasks while staying synchronized with your teammates or friends. 
