@@ -1,5 +1,6 @@
 import express from 'express';
 import http from 'http';
+import cors from 'cors';
 import { Server } from 'socket.io';
 import { roomState } from './Services/RoomData/index.js';
 import { createRoom } from './handlers/CreateRoom/index.js';
@@ -9,8 +10,13 @@ import { checkRoom } from './handlers/CheckRoom/index.js';
 
 const port = process.env.PORT || 3000;
 const app = express();
+const corsOrigin = {
+    origin: process.env.CORS_ORIGIN || '*',
+}
+app.use(cors(corsOrigin));
 const server = http.createServer(app);
-const io = new Server(server);
+const io = new Server(server, {cors: corsOrigin});
+
 io.on('connection', (socket) => {
     console.log(`Connected client: ${socket.id}`);
     createRoom({ socket, roomState, io })
