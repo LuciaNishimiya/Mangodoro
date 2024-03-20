@@ -29,10 +29,15 @@ export const ErrorMsg = () => {
 
                     </>
                 ) : appError.code === 409 ? (
-                    <>
-                        <button onClick={() => { }} className='ErrorBtn'></button>
-                        <button onClick={() => { location.reload(); }} className='ErrorBtn'>Try again</button>
-                    </>
+                    <button
+                    className='ErrorBtn'
+                    onClick={() => {
+                        setModalContent({ title: 'Settings', content: <SettingsModal /> });
+                        setError(false);
+                    }}
+                >
+                    Create new room
+                </button>
                 ) : (
                     <>
                         <button onClick={() => { location.reload(); }} className='ErrorBtn'>Try again</button>
