@@ -3,7 +3,7 @@ export function checkRoom({ socket, roomState }) {
     socket.on('checkRoom', async (roomId) => {
 
         if (roomState.has(roomId)) {
-            const room = roomState.get(settings.roomId);
+            const room = roomState.get(roomId);
             socket.emit('checkRoom', { 
                 exist: true,
                 status: room.pomodoroStatus, 
